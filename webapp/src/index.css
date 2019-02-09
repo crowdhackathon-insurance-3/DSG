@@ -35,3 +35,11 @@ button:hover .patternImage {
 .legendGradient.Humidity {
 	background: linear-gradient(to right, #c2e59c, #64b3f4);
 }
+
+.imgRed {
+	box-shadow: 0px 0px 45px 0px rgba(222, 20, 57, 1);
+}
+
+.imgGreen {
+	box-shadow: 0px 0px 45px 0px rgba(52, 222, 22, 1);
+}

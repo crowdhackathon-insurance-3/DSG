@@ -3,6 +3,7 @@ import { VelocityTransitionGroup } from "velocity-react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Grid from "./components/Grid/Grid";
 import Filepicker from "./components/Filepicker/Filepicker";
+import ImageGallery from "./components/ImageGallery/ImageGallery";
 
 const patterns = {
 	Temperature: [
@@ -69,7 +70,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<main className="flex h-screen bg-grey-lighter">
+				<main className="flex min-h-screen bg-grey-lighter">
 					<Sidebar
 						isOpen={this.state.isSideBarOpen}
 						open={this.openSidebar}
@@ -79,22 +80,27 @@ class App extends Component {
 					/>
 					<article className="p-10 w-full">
 						<h1 className="text-blue mb-5">{currentPage}</h1>
-						<Grid
-							patterns={patterns[currentPage]}
-							currentPage={currentPage}
-							currentPattern={currentPattern}
-							selectPattern={this.selectPattern}
-						/>
+						<VelocityTransitionGroup
+							leave={{
+								animation: "slideUp",
+								duration: 400
+							}}
+						>
+							{uploadedImages.length === 0 && (
+								<Grid
+									patterns={patterns[currentPage]}
+									currentPage={currentPage}
+									currentPattern={currentPattern}
+									selectPattern={this.selectPattern}
+								/>
+							)}
+						</VelocityTransitionGroup>
 						<VelocityTransitionGroup
 							enter={{
 								animation: "fadeIn",
 								duration: 200,
 								delay: 200,
 								display: "flex"
-							}}
-							leave={{
-								animation: "fadeOut",
-								duration: 200
 							}}
 						>
 							{currentPattern && uploadedImages.length === 0 && (
@@ -104,6 +110,18 @@ class App extends Component {
 								>
 									<Filepicker onChange={this.handleUpload} />
 								</section>
+							)}
+						</VelocityTransitionGroup>
+						<VelocityTransitionGroup
+							enter={{
+								animation: "fadeIn",
+								duration: 200,
+								delay: 400,
+								display: "flex"
+							}}
+						>
+							{uploadedImages.length > 0 && (
+								<ImageGallery images={uploadedImages} />
 							)}
 						</VelocityTransitionGroup>
 					</article>
