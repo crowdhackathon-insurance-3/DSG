@@ -11,3 +11,23 @@ body {
 .Sidebar {
 	transition: all 100ms linear;
 }
+
+button:hover img {
+	transform: scale(0.95);
+}
+
+.legendGradient.Temperature {
+	background: linear-gradient(
+		to right,
+		#0500ff,
+		#00fff4,
+		#17ff00,
+		#ffdc00,
+		#ff7800,
+		#ff0a00
+	);
+}
+
+.legendGradient.Humidity {
+	background: linear-gradient(to right, #c2e59c, #64b3f4);
+}

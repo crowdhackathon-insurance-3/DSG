@@ -9,16 +9,16 @@ const Sidebar = ({ isOpen, click, open, close, currentPage }) => {
 			onMouseLeave={close}
 		>
 			<ul className="list-reset px-5 pt-10">
-				<li className="mt-8">
+				<li className="mb-8">
 					<button
 						className={`flex items-center hover:text-white focus:outline-none ${
-							currentPage === "temperature"
+							currentPage === "Temperature"
 								? "text-blue hover:text-blue"
 								: ""
 						}`}
-						onClick={() => click("temperature")}
+						onClick={() => click("Temperature")}
 					>
-						<i class="fas fa-thermometer-three-quarters fa-2x" />
+						<i className="fas fa-thermometer-three-quarters fa-2x" />
 						<VelocityTransitionGroup
 							enter={{
 								animation: "fadeIn",
@@ -34,16 +34,16 @@ const Sidebar = ({ isOpen, click, open, close, currentPage }) => {
 						</VelocityTransitionGroup>
 					</button>
 				</li>
-				<li className="mt-8">
+				<li className="mb-8">
 					<button
 						className={`flex items-center hover:text-white focus:outline-none ${
-							currentPage === "humidity"
+							currentPage === "Humidity"
 								? "text-blue hover:text-blue"
 								: ""
 						}`}
-						onClick={() => click("humidity")}
+						onClick={() => click("Humidity")}
 					>
-						<i class="fas fa-tint fa-2x" />
+						<i className="fas fa-tint fa-2x" />
 						<VelocityTransitionGroup
 							enter={{
 								animation: "fadeIn",
