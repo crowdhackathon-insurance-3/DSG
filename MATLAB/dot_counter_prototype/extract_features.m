@@ -4,9 +4,9 @@
 	converts them to grayscale, to BW and extracts features for classification.
 	Adding features BW pixeldiff, circle count
 %}
-
+function [diffs, numberOfCircles, skEwMAX, diffSkEwMAX, skEwMIN, diffSkEwMIN] = extract_features(x)
 %% data input -------------------------------------------------------------
-rgbImage 	= imread('0.png');
+rgbImage 	= imread(x);
 grayImage 	= rgb2gray(rgbImage);  
 BWImage 	= im2bw(grayImage);
 
