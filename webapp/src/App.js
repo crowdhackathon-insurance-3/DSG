@@ -19,7 +19,8 @@ const patterns = {
 class App extends Component {
 	state = {
 		isSideBarOpen: false,
-		currentPage: "Temperature"
+		currentPage: "Temperature",
+		currentPattern: {}
 	};
 
 	openSidebar = () =>
@@ -35,6 +36,11 @@ class App extends Component {
 	changePage = pageKey =>
 		this.setState({
 			currentPage: pageKey
+		});
+
+	selectPattern = pattern =>
+		this.setState({
+			currentPattern: pattern
 		});
 
 	render() {
@@ -72,6 +78,13 @@ class App extends Component {
 										key={i}
 										data={pattern}
 										type={currentPage}
+										active={
+											pattern.filename ===
+											this.state.currentPattern.filename
+										}
+										click={() =>
+											this.selectPattern(pattern)
+										}
 									/>
 								))}
 							</div>
