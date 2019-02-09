@@ -8,6 +8,7 @@
 function [raw_features, normalized_features] = extract_features(varargin)
 
 for imageCount = 1:nargin
+for imageCount = 1:nargin % ikr... 
 
 	%% data input -------------------------------------------------------------
 	rgbImage 	= imread(varargin{imageCount});
@@ -20,11 +21,11 @@ for imageCount = 1:nargin
 	diffs = histogramBW(1) - histogramBW(2)
 
 	%% find circles
-	binaryImage = rgbImage(:,:,1) < 200;
+	binaryImage 	= rgbImage(:,:,1) < 200;
 	numberOfCircles = length(regionprops(binaryImage, 'Centroid', 'Area'))
 
 	%% skew / diff_skew / Max-Min
-	skEw = skewness(BWImage);
+	skEw 	= skewness(BWImage);
 	skEwMAX = max(skEw)
 	diffSkEwMAX = max(diff(skEw))
 	skEwMIN = min(skEw)
@@ -48,4 +49,5 @@ for imageCount = 1:nargin
 	normalized_features(imageCount, 5) = mat2gray(diffSkEwMAX, [0 1]);
 	normalized_features(imageCount, 6) = mat2gray(skEwMIN, [0 1]);
 	normalized_features(imageCount, 7) = mat2gray(diffSkEwMIN, [0 1]);
-end
+
+end % sorry for this :(
