@@ -15,7 +15,7 @@ const Pattern = ({ data, type }) => {
 			<img
 				src={`/patterns/${data.filename}`}
 				alt="Pattern"
-				className="hoverableImage shadow-md border"
+				className="patternImage shadow-md border"
 			/>
 		</button>
 	);

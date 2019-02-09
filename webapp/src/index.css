@@ -12,8 +12,8 @@ body {
 	transition: all 100ms linear;
 }
 
-button:hover img {
-	transform: scale(0.95);
+button:hover .patternImage {
+	transform: scale(1.03);
 }
 
 .legendGradient.Temperature {
