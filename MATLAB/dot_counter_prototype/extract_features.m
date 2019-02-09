@@ -7,7 +7,6 @@
 %}
 function [raw_features, normalized_features] = extract_features(varargin)
 
-for imageCount = 1:nargin
 for imageCount = 1:nargin % ikr... 
 
 	%% data input -------------------------------------------------------------
