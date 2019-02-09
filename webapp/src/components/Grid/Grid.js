@@ -15,7 +15,7 @@ const Grid = ({ patterns, currentPage, currentPattern, selectPattern }) => {
 				duration: 200
 			}}
 		>
-			<div className="flex w-2/3 mx-auto" key={currentPage}>
+			<section className="flex w-2/3 mx-auto" key={currentPage}>
 				{patterns.map((pattern, i) => (
 					<Pattern
 						key={i}
@@ -25,7 +25,7 @@ const Grid = ({ patterns, currentPage, currentPattern, selectPattern }) => {
 						click={() => selectPattern(pattern.filename)}
 					/>
 				))}
-			</div>
+			</section>
 		</VelocityTransitionGroup>
 	);
 };

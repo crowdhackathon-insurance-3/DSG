@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { VelocityTransitionGroup } from "velocity-react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Grid from "./components/Grid/Grid";
+import Filepicker from "./components/Filepicker/Filepicker";
 
 const patterns = {
 	Temperature: [
@@ -17,9 +19,9 @@ const patterns = {
 
 class App extends Component {
 	state = {
+		uploadedImages: [],
 		isSideBarOpen: false,
-		currentPage: "Temperature",
-		currentPattern: {}
+		currentPage: "Temperature"
 	};
 
 	openSidebar = () =>
@@ -42,8 +44,28 @@ class App extends Component {
 			currentPattern: pattern
 		});
 
+	handleUpload = e => Array.from(e.target.files).map(this.parseImage);
+
+	parseImage = file => {
+		console.log(file);
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onloadend = () => {
+			this.setState(prevState => {
+				const images = prevState.uploadedImages.slice();
+				images.push({
+					name: file.name,
+					url: reader.result
+				});
+				return {
+					uploadedImages: images
+				};
+			});
+		};
+	};
+
 	render() {
-		const { currentPage } = this.state;
+		const { currentPage, currentPattern, uploadedImages } = this.state;
 
 		return (
 			<div className="App">
@@ -60,9 +82,30 @@ class App extends Component {
 						<Grid
 							patterns={patterns[currentPage]}
 							currentPage={currentPage}
-							currentPattern={this.state.currentPattern}
+							currentPattern={currentPattern}
 							selectPattern={this.selectPattern}
 						/>
+						<VelocityTransitionGroup
+							enter={{
+								animation: "fadeIn",
+								duration: 200,
+								delay: 200,
+								display: "flex"
+							}}
+							leave={{
+								animation: "fadeOut",
+								duration: 200
+							}}
+						>
+							{currentPattern && uploadedImages.length === 0 && (
+								<section
+									key={typeof currentPattern}
+									className="flex items-center justify-center w-2/3 mt-12 mx-auto"
+								>
+									<Filepicker onChange={this.handleUpload} />
+								</section>
+							)}
+						</VelocityTransitionGroup>
 					</article>
 				</main>
 			</div>
