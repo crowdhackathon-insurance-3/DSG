@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { VelocityTransitionGroup } from "velocity-react";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Pattern from "./components/Pattern/Pattern";
+import Grid from "./components/Grid/Grid";
 
 const patterns = {
 	Temperature: [
@@ -58,37 +57,12 @@ class App extends Component {
 					/>
 					<article className="p-10 w-full">
 						<h1 className="text-blue mb-5">{currentPage}</h1>
-						<VelocityTransitionGroup
-							enter={{
-								animation: "fadeIn",
-								duration: 200,
-								delay: 200
-							}}
-							leave={{
-								animation: "fadeOut",
-								duration: 200
-							}}
-						>
-							<div
-								className="flex w-2/3 mx-auto"
-								key={currentPage}
-							>
-								{patterns[currentPage].map((pattern, i) => (
-									<Pattern
-										key={i}
-										data={pattern}
-										type={currentPage}
-										active={
-											pattern.filename ===
-											this.state.currentPattern.filename
-										}
-										click={() =>
-											this.selectPattern(pattern)
-										}
-									/>
-								))}
-							</div>
-						</VelocityTransitionGroup>
+						<Grid
+							patterns={patterns[currentPage]}
+							currentPage={currentPage}
+							currentPattern={this.state.currentPattern}
+							selectPattern={this.selectPattern}
+						/>
 					</article>
 				</main>
 			</div>
