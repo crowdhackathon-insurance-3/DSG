@@ -1,17 +1,18 @@
-%% Crowdpolicy Insurtech 3.0
+%% Crowdpolicy Insurtech 3.0 ----------------------------------------------
 %{
 	This script reads rgb images from the patterns we are developing,
 	converts them to grayscale, to BW and extracts features for classification.
+	Adding features BW pixeldiff, circle count
 %}
 
-%% data input 
+%% data input -------------------------------------------------------------
 rgbImage 	= imread('0.png');
 grayImage 	= rgb2gray(rgbImage);  
 BWImage 	= im2bw(grayImage);
 
-% ---  Features ---
+% Features ----------------------------------------------------------------
 
-%% DIFFS feature
+%% DIFFS
 histogramBW = imhist(BWImage);
 diffs = histogramBW(1) - histogramBW(2)
 
@@ -19,3 +20,9 @@ diffs = histogramBW(1) - histogramBW(2)
 binaryImage = rgbImage(:,:,1) < 200;
 numberOfCircles = length(regionprops(binaryImage, 'Centroid', 'Area'))
 
+%% skew / diff_skew / Max-Min
+skEw = skewness(BWImage);
+skEwMAX = max(skEw)
+diffSkEwMAX = max(diff(skEw))
+skEwMIN = min(skEw)
+diffSkEwMIN = min(diff(skEw))
