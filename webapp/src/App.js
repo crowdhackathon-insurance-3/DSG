@@ -42,7 +42,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<main className="flex h-screen">
+				<main className="flex h-screen bg-grey-lighter">
 					<Sidebar
 						isOpen={this.state.isSideBarOpen}
 						open={this.openSidebar}
