@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { VelocityTransitionGroup } from "velocity-react";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Pattern from "./components/Pattern/Pattern";
+import Grid from "./components/Grid/Grid";
 
 const patterns = {
 	Temperature: [
@@ -19,7 +18,8 @@ const patterns = {
 class App extends Component {
 	state = {
 		isSideBarOpen: false,
-		currentPage: "Temperature"
+		currentPage: "Temperature",
+		currentPattern: {}
 	};
 
 	openSidebar = () =>
@@ -37,6 +37,11 @@ class App extends Component {
 			currentPage: pageKey
 		});
 
+	selectPattern = pattern =>
+		this.setState({
+			currentPattern: pattern
+		});
+
 	render() {
 		const { currentPage } = this.state;
 
@@ -52,30 +57,12 @@ class App extends Component {
 					/>
 					<article className="p-10 w-full">
 						<h1 className="text-blue mb-5">{currentPage}</h1>
-						<VelocityTransitionGroup
-							enter={{
-								animation: "fadeIn",
-								duration: 200,
-								delay: 200
-							}}
-							leave={{
-								animation: "fadeOut",
-								duration: 200
-							}}
-						>
-							<div
-								className="flex w-2/3 mx-auto"
-								key={currentPage}
-							>
-								{patterns[currentPage].map((pattern, i) => (
-									<Pattern
-										key={i}
-										data={pattern}
-										type={currentPage}
-									/>
-								))}
-							</div>
-						</VelocityTransitionGroup>
+						<Grid
+							patterns={patterns[currentPage]}
+							currentPage={currentPage}
+							currentPattern={this.state.currentPattern}
+							selectPattern={this.selectPattern}
+						/>
 					</article>
 				</main>
 			</div>
