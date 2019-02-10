@@ -7,14 +7,14 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 
 const patterns = {
 	Temperature: [
-		{ range: [20, 30], filename: "temp_1.svg", symbol: "°C" },
-		{ range: [30, 40], filename: "temp_2.svg", symbol: "°C" },
-		{ range: [40, 50], filename: "temp_3.svg", symbol: "°C" }
+		{ range: [20, 30], filename: "temp_patt.png", symbol: "°C" },
+		{ range: [30, 40], filename: "temp_rect.png", symbol: "°C" },
+		{ range: [40, 50], filename: "temp_dots.png", symbol: "°C" }
 	],
 	Humidity: [
-		{ range: [0, 30], filename: "humi_1.svg", symbol: "% rH" },
-		{ range: [30, 50], filename: "humi_2.svg", symbol: "% rH" },
-		{ range: [50, 70], filename: "humi_3.svg", symbol: "% rH" }
+		{ range: [0, 30], filename: "humi_connection.png", symbol: "% rH" },
+		{ range: [30, 50], filename: "humi_sieve.png", symbol: "% rH" },
+		{ range: [50, 70], filename: "humi_angular.png", symbol: "% rH" }
 	]
 };
 
