@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Grid from "./components/Grid/Grid";
 import Filepicker from "./components/Filepicker/Filepicker";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
+import Stats from "./components/Stats/Stats";
 import scans from "./scannedData.json";
 
 const patterns = {
@@ -87,7 +88,7 @@ class App extends Component {
 								duration: 400
 							}}
 						>
-							{uploadedImages.length === 0 && false && (
+							{uploadedImages.length === 0 && (
 								<Grid
 									patterns={patterns[currentPage]}
 									currentPage={currentPage}
@@ -121,9 +122,10 @@ class App extends Component {
 								display: "flex"
 							}}
 						>
-							{uploadedImages.length > 0 || (
+							{uploadedImages.length > 0 && (
 								<div className="flex">
 									<ImageGallery scans={scans} />
+									<Stats scans={scans} />
 								</div>
 							)}
 						</VelocityTransitionGroup>

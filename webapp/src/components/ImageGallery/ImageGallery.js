@@ -17,29 +17,29 @@ const ImageGallery = ({ scans }) => {
 						alt={`Scan ${i}`}
 					/>
 					<table className="leading-normal ml-4">
-						<tr className="">
+						<tr>
 							<td className="font-bold">LOT:</td>
 							<td className="pl-4">1810911</td>
 						</tr>
-						<tr className="">
+						<tr>
 							<td className="font-bold">ID:</td>
 							<td className="pl-4">19284</td>
 						</tr>
-						<tr className="">
+						<tr>
 							<td className="font-bold">PATTERN TYPE:</td>
 							<td className="pl-4">TEMPERATURE</td>
 						</tr>
-						<tr className="">
+						<tr>
 							<td className="font-bold">THRESHOLD:</td>
 							<td className="pl-4">20°C</td>
 						</tr>
-						<tr className="">
+						<tr>
 							<td className="font-bold">DATE:</td>
 							<td className="pl-4">2019-02-10</td>
 						</tr>
-						<tr className="">
+						<tr>
 							<td className="font-bold">INSURANCE COST:</td>
-							<td className="pl-4 font-bold">12.34€</td>
+							<td className="pl-4 font-bold">2165.34€</td>
 						</tr>
 					</table>
 				</div>
