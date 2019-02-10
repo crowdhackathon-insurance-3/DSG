@@ -21,7 +21,7 @@ const Pattern = ({ data, type, click, active }) => {
 				src={`/patterns/${data.filename}`}
 				alt="Pattern"
 				className={`patternImage shadow-md border bg-white ${
-					active ? "active border-green-lighte1r" : ""
+					active ? "active border-green-lighter" : ""
 				}`}
 			/>
 		</button>

@@ -1,21 +1,48 @@
 import React from "react";
 
-const tempImges = ["vanilla.jpg", "low.jpg", "full.jpg", "med.jpg"];
-
-const ImageGallery = ({ images }) => {
+const ImageGallery = ({ scans }) => {
 	return (
-		<section className="flex items-center justify-center mt-12 mx-auto">
-			{tempImges.map(img => (
-				<button className="mx-10">
+		<section className="w-1/2 flex flex-col items-start justify-center mx-auto">
+			{scans.map((scan, i) => (
+				<div
+					className={`flex flex-row mx-10 mb-4 shadow-lg p-4 pr-8 ${
+						scan.thresholdPassed
+							? "bg-red text-white"
+							: "bg-green-lightest"
+					}`}
+				>
 					<img
-						src={`/scannedImages/${img}`}
+						src={`/scannedImages/${scan.filename}`}
 						width="256"
-						alt={img}
-						className={`cursor-pointer patternImage border shadow-lg ${
-							img === "full.jpg" ? "border-red" : "border-green"
-						}`}
+						alt={`Scan ${i}`}
 					/>
-				</button>
+					<table className="leading-normal ml-4">
+						<tr className="">
+							<td className="font-bold">LOT:</td>
+							<td className="pl-4">1810911</td>
+						</tr>
+						<tr className="">
+							<td className="font-bold">ID:</td>
+							<td className="pl-4">19284</td>
+						</tr>
+						<tr className="">
+							<td className="font-bold">PATTERN TYPE:</td>
+							<td className="pl-4">TEMPERATURE</td>
+						</tr>
+						<tr className="">
+							<td className="font-bold">THRESHOLD:</td>
+							<td className="pl-4">20°C</td>
+						</tr>
+						<tr className="">
+							<td className="font-bold">DATE:</td>
+							<td className="pl-4">2019-02-10</td>
+						</tr>
+						<tr className="">
+							<td className="font-bold">INSURANCE COST:</td>
+							<td className="pl-4 font-bold">12.34€</td>
+						</tr>
+					</table>
+				</div>
 			))}
 		</section>
 	);

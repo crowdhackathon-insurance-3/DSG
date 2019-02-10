@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Grid from "./components/Grid/Grid";
 import Filepicker from "./components/Filepicker/Filepicker";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
+import scans from "./scannedData.json";
 
 const patterns = {
 	Temperature: [
@@ -86,7 +87,7 @@ class App extends Component {
 								duration: 400
 							}}
 						>
-							{uploadedImages.length === 0 && (
+							{uploadedImages.length === 0 && false && (
 								<Grid
 									patterns={patterns[currentPage]}
 									currentPage={currentPage}
@@ -120,8 +121,10 @@ class App extends Component {
 								display: "flex"
 							}}
 						>
-							{uploadedImages.length > 0 && (
-								<ImageGallery images={uploadedImages} />
+							{uploadedImages.length > 0 || (
+								<div className="flex">
+									<ImageGallery scans={scans} />
+								</div>
 							)}
 						</VelocityTransitionGroup>
 					</article>

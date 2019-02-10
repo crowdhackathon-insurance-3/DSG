@@ -1,0 +1,46 @@
+[
+	{
+		"filename": "1.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "2.jpg",
+		"thresholdPassed": true
+	},
+	{
+		"filename": "3.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "4.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "2.jpg",
+		"thresholdPassed": true
+	},
+	{
+		"filename": "1.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "4.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "4.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "1.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "4.jpg",
+		"thresholdPassed": false
+	},
+	{
+		"filename": "4.jpg",
+		"thresholdPassed": false
+	}
+]
