@@ -136,6 +136,10 @@ class App extends Component {
 								<div className="flex">
 									<ImageGallery
 										scans={scans[selectedCity].images}
+										city={{
+											date: scans[selectedCity].date,
+											name: selectedCity
+										}}
 									/>
 									<Stats
 										scans={scans[selectedCity].images}

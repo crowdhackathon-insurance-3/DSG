@@ -1,8 +1,18 @@
 import React from "react";
 
-const ImageGallery = ({ scans }) => {
+const ImageGallery = ({ scans, city }) => {
 	return (
 		<section className="w-1/2 flex flex-col items-start justify-center mx-auto">
+			<div className="pl-10 mb-5 text-blue-dark">
+				<h2 className="">
+					<span className="mr-2">{city.name}:</span>
+					<span className="text-blue-darker">{city.date}</span>
+				</h2>
+				<h3 className="">
+					<span className="mr-2">THRESHOLD:</span>
+					<span className="text-blue-darker">20°C</span>
+				</h3>
+			</div>
 			{scans.map((scan, i) => (
 				<div
 					key={i}
@@ -30,14 +40,6 @@ const ImageGallery = ({ scans }) => {
 							<tr>
 								<td className="font-bold">PATTERN TYPE:</td>
 								<td className="pl-4">TEMPERATURE</td>
-							</tr>
-							<tr>
-								<td className="font-bold">THRESHOLD:</td>
-								<td className="pl-4">20°C</td>
-							</tr>
-							<tr>
-								<td className="font-bold">DATE:</td>
-								<td className="pl-4">2019-02-10</td>
 							</tr>
 							<tr>
 								<td className="font-bold">INSURANCE COST:</td>
