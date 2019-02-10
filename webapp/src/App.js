@@ -112,12 +112,11 @@ class App extends Component {
 											Last Cargo
 										</button>
 										<div className="my-5 font-bold">OR</div>
-
 										<button
 											className="bg-blue hover:bg-blue-darker text-white cursor-pointer p-4 shadow-md"
 											onClick={this.loadDataset}
 										>
-											<i className="fas fa-upload" />{" "}
+											<i className="fas fa-calendar" />{" "}
 											Select a Cargo
 										</button>
 									</div>

@@ -16,7 +16,7 @@ const ImageGallery = ({ scans, city }) => {
 			{scans.map((scan, i) => (
 				<div
 					key={i}
-					className={`flex flex-row mx-10 mb-4 shadow-lg p-4 pr-8 ${
+					className={`flex flex-row mx-10 mb-4 shadow-lg p-5 pr-8 ${
 						scan.thresholdPassed
 							? "bg-red text-white"
 							: "bg-green-lightest"
