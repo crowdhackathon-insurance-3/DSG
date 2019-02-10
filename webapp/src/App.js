@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { VelocityTransitionGroup } from "velocity-react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Grid from "./components/Grid/Grid";
-import Filepicker from "./components/Filepicker/Filepicker";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Stats from "./components/Stats/Stats";
 import scans from "./scannedData.json";
@@ -22,7 +21,7 @@ const patterns = {
 
 class App extends Component {
 	state = {
-		uploadedImages: [],
+		isDatasetLoaded: false,
 		isSideBarOpen: false,
 		currentPage: "Temperature",
 		selectedCity: "Athens"
@@ -48,25 +47,7 @@ class App extends Component {
 			currentPattern: pattern
 		});
 
-	handleUpload = e => Array.from(e.target.files).map(this.parseImage);
-
-	parseImage = file => {
-		console.log(file);
-		const reader = new FileReader();
-		reader.readAsDataURL(file);
-		reader.onloadend = () => {
-			this.setState(prevState => {
-				const images = prevState.uploadedImages.slice();
-				images.push({
-					name: file.name,
-					url: reader.result
-				});
-				return {
-					uploadedImages: images
-				};
-			});
-		};
-	};
+	loadDataset = () => this.setState({ isDatasetLoaded: true });
 
 	handleMapClick = cityName => {
 		this.setState({
@@ -78,7 +59,7 @@ class App extends Component {
 		const {
 			currentPage,
 			currentPattern,
-			uploadedImages,
+			isDatasetLoaded,
 			selectedCity
 		} = this.state;
 
@@ -100,7 +81,7 @@ class App extends Component {
 								duration: 400
 							}}
 						>
-							{uploadedImages.length === 0 && (
+							{!isDatasetLoaded && (
 								<Grid
 									patterns={patterns[currentPage]}
 									currentPage={currentPage}
@@ -117,12 +98,29 @@ class App extends Component {
 								display: "flex"
 							}}
 						>
-							{currentPattern && uploadedImages.length === 0 && (
+							{currentPattern && !isDatasetLoaded && (
 								<section
 									key={typeof currentPattern}
 									className="flex items-center justify-center w-2/3 mt-12 mx-auto"
 								>
-									<Filepicker onChange={this.handleUpload} />
+									<div className="w-1/3 text-center">
+										<button
+											className="bg-blue hover:bg-blue-darker text-white cursor-pointer p-4 shadow-md"
+											onClick={this.loadDataset}
+										>
+											<i className="fas fa-upload" /> Load
+											Last Cargo
+										</button>
+										<div className="my-5 font-bold">OR</div>
+
+										<button
+											className="bg-blue hover:bg-blue-darker text-white cursor-pointer p-4 shadow-md"
+											onClick={this.loadDataset}
+										>
+											<i className="fas fa-upload" />{" "}
+											Select a Cargo
+										</button>
+									</div>
 								</section>
 							)}
 						</VelocityTransitionGroup>
@@ -134,11 +132,13 @@ class App extends Component {
 								display: "flex"
 							}}
 						>
-							{uploadedImages.length > 0 && (
+							{isDatasetLoaded && (
 								<div className="flex">
-									<ImageGallery scans={scans[selectedCity]} />
+									<ImageGallery
+										scans={scans[selectedCity].images}
+									/>
 									<Stats
-										scans={scans[selectedCity]}
+										scans={scans[selectedCity].images}
 										mapClick={this.handleMapClick}
 									/>
 								</div>
