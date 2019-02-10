@@ -35,7 +35,7 @@ const ImageGallery = ({ scans, city }) => {
 							</tr>
 							<tr>
 								<td className="font-bold">ID:</td>
-								<td className="pl-4">19284</td>
+								<td className="pl-4">{4312 + i}</td>
 							</tr>
 							<tr>
 								<td className="font-bold">PATTERN TYPE:</td>
