@@ -1,46 +1,140 @@
-[
-	{
-		"filename": "1.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "2.jpg",
-		"thresholdPassed": true
-	},
-	{
-		"filename": "3.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "4.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "2.jpg",
-		"thresholdPassed": true
-	},
-	{
-		"filename": "1.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "4.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "4.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "1.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "4.jpg",
-		"thresholdPassed": false
-	},
-	{
-		"filename": "4.jpg",
-		"thresholdPassed": false
-	}
-]
+{
+	"Athens": [
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "2.jpg",
+			"thresholdPassed": true
+		},
+		{
+			"filename": "3.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "2.jpg",
+			"thresholdPassed": true
+		},
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		}
+	],
+	"Lamia": [
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "2.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "3.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "2.jpg",
+			"thresholdPassed": true
+		},
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		}
+	],
+	"Larissa": [
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "2.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "3.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "2.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "1.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		},
+		{
+			"filename": "4.jpg",
+			"thresholdPassed": false
+		}
+	]
+}

@@ -24,7 +24,8 @@ class App extends Component {
 	state = {
 		uploadedImages: [],
 		isSideBarOpen: false,
-		currentPage: "Temperature"
+		currentPage: "Temperature",
+		selectedCity: "Athens"
 	};
 
 	openSidebar = () =>
@@ -67,8 +68,19 @@ class App extends Component {
 		};
 	};
 
+	handleMapClick = cityName => {
+		this.setState({
+			selectedCity: cityName
+		});
+	};
+
 	render() {
-		const { currentPage, currentPattern, uploadedImages } = this.state;
+		const {
+			currentPage,
+			currentPattern,
+			uploadedImages,
+			selectedCity
+		} = this.state;
 
 		return (
 			<div className="App">
@@ -124,8 +136,11 @@ class App extends Component {
 						>
 							{uploadedImages.length > 0 && (
 								<div className="flex">
-									<ImageGallery scans={scans} />
-									<Stats scans={scans} />
+									<ImageGallery scans={scans[selectedCity]} />
+									<Stats
+										scans={scans[selectedCity]}
+										mapClick={this.handleMapClick}
+									/>
 								</div>
 							)}
 						</VelocityTransitionGroup>

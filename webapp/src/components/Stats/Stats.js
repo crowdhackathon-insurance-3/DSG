@@ -1,6 +1,7 @@
 import React from "react";
+import Map from "../Map/Map";
 
-const Stats = ({ scans }) => {
+const Stats = ({ scans, mapClick }) => {
 	const itemCount = scans.length;
 	const coverage = 0.5;
 	const itemCost = 2165.34;
@@ -48,6 +49,7 @@ const Stats = ({ scans }) => {
 					</tr>
 				</tbody>
 			</table>
+			<Map click={mapClick} />
 		</section>
 	);
 };
