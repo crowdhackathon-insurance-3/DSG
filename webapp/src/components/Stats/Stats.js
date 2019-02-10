@@ -1,10 +1,8 @@
 import React from "react";
 import Map from "../Map/Map";
 
-const Stats = ({ scans, mapClick }) => {
+const Stats = ({ scans, mapClick, selectedCity }) => {
 	const itemCount = scans.length;
-	const coverage = 0.5;
-	const itemCost = 2165.34;
 	const actualFaulty = scans.filter(item => item.thresholdPassed).length;
 	return (
 		<section className="w-2/3 p-16">
@@ -27,7 +25,7 @@ const Stats = ({ scans, mapClick }) => {
 					</tr>
 				</tbody>
 			</table>
-			<Map click={mapClick} />
+			<Map click={mapClick} selectedCity={selectedCity} />
 		</section>
 	);
 };

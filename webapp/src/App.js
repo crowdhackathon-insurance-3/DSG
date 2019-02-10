@@ -143,6 +143,7 @@ class App extends Component {
 									<Stats
 										scans={scans[selectedCity].images}
 										mapClick={this.handleMapClick}
+										selectedCity={selectedCity}
 									/>
 								</div>
 							)}

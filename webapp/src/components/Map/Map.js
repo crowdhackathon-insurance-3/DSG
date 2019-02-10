@@ -26,7 +26,7 @@ const markers = [
 		coordinates: [22.4160706, 39.6383092]
 	}
 ];
-const MapComponent = ({ click }) => {
+const MapComponent = ({ click, selectedCity }) => {
 	return (
 		<div className="w-3/5 mx-auto mt-10">
 			<ComposableMap
@@ -54,9 +54,21 @@ const MapComponent = ({ click }) => {
 								key={i}
 								marker={marker}
 								style={{
-									default: { fill: "#FF5722" },
+									default: {
+										fill: `${
+											selectedCity === marker.name
+												? "#57FF22"
+												: "#FF5722"
+										}`
+									},
 									hover: { fill: "#FFFFFF" },
-									pressed: { fill: "#FF5722" }
+									pressed: {
+										fill: `${
+											selectedCity === marker.name
+												? "#57FF22"
+												: "#FF5722"
+										}`
+									}
 								}}
 							>
 								<circle
@@ -64,7 +76,11 @@ const MapComponent = ({ click }) => {
 									cy={0}
 									r={10}
 									style={{
-										stroke: "#FF5722",
+										stroke: `${
+											selectedCity === marker.name
+												? "#57FF22"
+												: "#FF5722"
+										}`,
 										strokeWidth: 3,
 										opacity: 0.9
 									}}
